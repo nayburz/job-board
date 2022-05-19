@@ -2,10 +2,9 @@ import React from "react";
 
 const JobBoardComponent = ({
   job: {
-    id,
     company,
     logo,
-    Isnew,
+    isNew,
     featured,
     position,
     role,
@@ -17,14 +16,14 @@ const JobBoardComponent = ({
     tools,
   },
 }) => {
-  const langAndTools = [];
+  const tags = [role, level];
 
   if (languages) {
-    langAndTools.push(...languages);
+    tags.push(...languages);
   }
 
   if (tools) {
-    langAndTools.push(...tools);
+    tags.push(...tools);
   }
 
   return (
@@ -33,17 +32,29 @@ const JobBoardComponent = ({
         <img src={logo} alt={company} />
       </div>
       <div className="flex flex-col ml-4">
-        <h3 className="font-bold text-teal-500">{company}</h3>
+        <h3 className="font-bold text-teal-500">
+          {company}
+          {isNew && (
+            <span className="text-teal-100 bg-teal-500 font-bold m-2 py-1 px-2 rounded-full">
+              New
+            </span>
+          )}
+          {featured && (
+            <span className="text-white bg-gray-800 font-bold py-1 px-2 rounded-full">
+              Featured
+            </span>
+          )}
+        </h3>
         <h2 className="font-bold text-xl">{position}</h2>
         <p className="text-gray-700">
           {postedAt} · {contract} · {location}
         </p>
       </div>
       <div className=" flex ml-auto items-center justify-end">
-        {langAndTools
-          ? langAndTools.map((langAndTool) => (
-              <span className="text-teal-500 bg-teal-100 font-bold m-3 p-2 rounded-xl">
-                {langAndTool}
+        {tags
+          ? tags.map((tag) => (
+              <span className="text-teal-500 bg-teal-100 font-bold m-2 p-2 rounded-xl">
+                {tag}
               </span>
             ))
           : ""}
