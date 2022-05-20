@@ -31,11 +31,11 @@ const JobBoardComponent = ({
     <div
       className={`flex flex-col bg-white shadow-md my-16 mx-16 p-6 rounded ${
         featured && "border-l-4 border-teal-500 border-solid"
-      } sm:flex-row`}
+      } lg:flex-row lg:my-4`}
     >
       <div>
         <img
-          className="-mt-16 mb-4 w-20 h-20 sm:h-24 sm:w-24 sm:my-0"
+          className="-mt-16 mb-4 w-20 h-20 lg:h-24 lg:w-24 lg:my-0"
           src={logo}
           alt={company}
         />
