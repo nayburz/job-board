@@ -56,7 +56,9 @@ function App() {
       <div className="container m-auto">
         {filters.length > 0 && (
           <>
-            <div className={`flex bg-white shadow-md my-16 mx-10 p-6 rounded`}>
+            <div
+              className={`flex bg-white shadow-md -my-20 mb-16 mx-10 p-6 rounded z-10 relative`}
+            >
               {filters.map((filter) => (
                 <span
                   className="cursor-pointer mr-4 mb-4 rounded font-bold text-teal-500 bg-teal-100 p-2 lg:mb-0"
